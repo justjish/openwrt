@@ -66,6 +66,11 @@ platform_do_upgrade() {
 		fw_setenv upgrade_available 1
 		nand_do_upgrade "$1"
 		;;
+        linksys,mx4200v1|\
+  	linksys,mx4200v2)
+                fw_setenv bootcount 3
+		platform_do_upgrade_linksys "$1"
+		;;
 	compex,wpq873|\
 	edimax,cax1800|\
 	netgear,rax120v2|\
